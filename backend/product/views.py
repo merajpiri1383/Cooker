@@ -12,6 +12,10 @@ class ProductAPIView:
     permission_classes = [StaffStatePermission]
 class ProductListAPIView(ProductAPIView,ListCreateAPIView):
     http_method_names = ["get","post"]
+    def get_queryset(self,*args,**kwargs):
+        print("all products is requested")
+        print(self.request.user)
+        return Product.objects.all()
 class ProductRetrieveView(ProductAPIView,RetrieveAPIView):
     pass 
 # master state permission 

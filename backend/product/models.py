@@ -10,7 +10,7 @@ product_type = [
 ]
 class Product(models.Model):
     title = models.CharField(max_length=300)
-    picture = models.ImageField(upload_to="pictures",null=True,blank=True,default="default.png")
+    picture = models.ImageField(upload_to="pictures",null=True,blank=True)
     deposit = models.IntegerField()
     price = models.IntegerField(null=True,blank=True)
     weight = models.IntegerField(null=True,blank=True)

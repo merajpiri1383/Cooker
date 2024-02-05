@@ -1,0 +1,23 @@
+@font-face{
+    font-family: vazir;
+    src: url("static/fonts/Vazir.woff");
+}:root{
+    --blue : rgb(0,110,255);
+    --box-shadow :0px 0px 15px 5px rgba(0, 0, 0, 0.116);
+    --gray : rgba(168, 168, 168, 0.774);
+    --blue-text-shadow : 1px 1px 10px #00f3ffc9 ;
+}*{
+    padding: 0;
+    margin: 0;
+    font-family: vazir;
+    box-sizing: border-box;
+}.content{
+    margin: 2rem ;
+}.spinner{
+    display: flex;
+    justify-content: center;
+    margin: 6rem;
+}.error{
+    color: crimson;
+    text-shadow: 1px 1px 10px red;
+}
