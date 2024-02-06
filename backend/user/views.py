@@ -1,4 +1,4 @@
-from user.serializers import UserAuthSerializer
+from user.serializers import UserAuthSerializer,UserSerializer
 from rest_framework.views import APIView
 from django.contrib.auth import get_user_model, authenticate, login
 import json
@@ -34,7 +34,10 @@ class UserVerifyAPIView(APIView):
                    user = get_user_model().objects.get(mobile=mobile)
                    user.is_active = True
                    user.save()
-                   return Response(data={"token": str(user.auth_token)})
+                   return Response(data={
+                       "token": str(user.auth_token),
+                       "user" : UserSerializer(user).data
+                   })
                 except:
                     return Response(
                     data={"error": "user with this mobile not found . "},

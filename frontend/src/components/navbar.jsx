@@ -3,9 +3,7 @@ import { useSelector , useDispatch } from "react-redux";
 import { logout } from "../reducer/user";
 import "../static/navbar.css";
 const Navbar = () => {
-    const phone = useSelector((state) => state.user.phone);
-    const isValid = useSelector((state) => state.user.is_valid);
-    const token = useSelector((state) => state.user.token);
+    const user = useSelector((state) => state.user) ;
     const dispatch = useDispatch();
     return (
         <div className="navbar">
@@ -14,19 +12,24 @@ const Navbar = () => {
                     <Link className="navbar-link" to={"/"}>Shop</Link>
                 </li>
                 {
-                    !token && !isValid && <li>
+                    !user.is_valid && <li>
                         <Link className="navbar-link" to={"/login/"}>ورود</Link>
                     </li>
                 }
                 {
-                    token && isValid && <li>
+                    user.is_master && <li>
+                        <Link className="navbar-link" to={"/settings/"} >تنظیمات</Link>
+                    </li>
+                }
+                {
+                    user.token && user.is_valid && <li>
                         <Link className="navbar-link" onClick={()=> dispatch(logout())}>خروج</Link>
                     </li>
                 }
             </div>
             {
-                phone !== 0 && isValid && <div className="navbar-info">
-                    {phone}
+                user.phone !== 0 && user.isValid && <div className="navbar-info">
+                    {user.phone}
                 </div>
             }
         </div>

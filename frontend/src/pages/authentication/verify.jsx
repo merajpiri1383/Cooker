@@ -1,6 +1,6 @@
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
-import { setToken , setIsValid } from "../../reducer/user";
+import { setToken , setIsValid ,setPermission} from "../../reducer/user";
 import {useSelector , useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import API from "../../auth/auth";
@@ -19,7 +19,16 @@ const Verify = () => {
             (response) => {
                 console.log(response)
                 if (response.status === 200){
-                    const token = response.data.token ; 
+                    const token = response.data.token ;
+                    const user = response.data.user ;
+                    console.log(user.is_staff)
+                    console.log(user.is_master)
+                    dispatch(setPermission({
+                        is_active : user.is_active ,
+                        is_chef : user.is_chef ,
+                        is_staff : user.is_staff ,
+                        is_master : user.is_master 
+                    }))
                     dispatch(setToken(token));
                     dispatch(setIsValid(true));
                     return navigate("/")

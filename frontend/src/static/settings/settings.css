@@ -1,0 +1,30 @@
+.settings-section{
+    padding: 2rem 4rem;
+}.settings-section .settings .settings-links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid var(--gray);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    border-radius: 25px;
+}.settings-section > h1{
+    color: crimson;
+    text-shadow: 1px 1px 10px rgba(255, 0, 0, 0.577);
+    text-align: center;
+}.settings-section .settings .settings-links .settings-link{
+    padding: .8rem;
+    text-decoration: none;
+    transition: 300ms;
+    color: var(--blue);
+}.settings-section .settings .settings-links .settings-link:hover{
+    border-bottom: 2px solid var(--blue);
+    border-radius: 25px;
+    box-shadow: 0px 1px 20px 10px rgba(0, 0, 255, 0.092);
+    transform: translateY(-10px);
+    transition: 300ms;
+}@media only screen and (max-width : 768px){
+    .settings-section{
+        padding: 1rem;
+    }
+}

@@ -40,8 +40,26 @@
     font-size: 1.2rem;
     border: 1px solid var(--blue);
 }.auth-form .auth-form-group .auth-form-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--blue);
     text-shadow:1px 1px 10px #00f3ffc9;
+}.auth-form .auth-form-group .auth-form-delete{
+    background-color: red;
+}.auth-form .auth-form-group .auth-form-delete:hover{
+    color: red;
+    border: 1px solid red;
+}.auth-form.auth-form .auth-form-group .auth-form-input::file-selector-button{
+    background-color: white;
+    border: 0;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 15px;
+}@media only screen and (max-width : 768px){
+    .auth-form {
+        margin: .5rem auto;
+        width: 100%;
+    }.auth-form .auth-form-group .auth-form-title{
+        font-size: 1rem;
+    }
 }

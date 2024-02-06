@@ -10,6 +10,7 @@ urlpatterns = [
     path("profile/",include("userprofile.urls")), 
     path("master/",include("master.urls")),
     path("accounts/",include("user.urls")),
+    path("settings/",include("settings.urls")),
 ]
 if settings.DEBUG : 
     urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

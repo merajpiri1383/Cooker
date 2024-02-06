@@ -1,0 +1,65 @@
+.products-sections{
+    padding: 2rem 8rem;
+}.products-sections h2{
+    color: var(--blue);
+    text-shadow: var(--blue-text-shadow);
+}.products-sections .products{
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}.products-sections .products .product{
+    box-shadow: var(--box-shadow);
+    padding: .5rem; 
+    border-radius: 25px;
+    width: 30%;
+}.products-sections .products .product img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 300ms;
+    height: 15rem;
+}.products-sections .products .product img:hover{
+    transform: scale(1.1);
+    transition: 300ms;
+}.products-sections .products .product .btn-group{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}.products-sections .products .product .btn-group button{
+    background-color: white;
+    margin: 0 .2rem ;
+    border-radius: 10px;
+    border: 0;
+    width: 100%;
+    transition: 300ms;
+    padding: .4rem;
+}.products-sections .products .product .btn-group button.show-btn{
+    border-bottom: 2px solid var(--blue);
+    color: var(--blue);
+}.products-sections .products .product .btn-group button.change-btn{
+    border-bottom: 2px solid var(--warning);
+    color: var(--warning) ;
+}.products-sections .products .product .btn-group button.show-btn:hover{
+    background-color: var(--blue);
+}.products-sections .products .product h6{
+    height: 2rem;
+}.products-sections .products .product .btn-group button:hover{
+    transform: translateY(-10px);
+    color: white;
+    font-weight: 600;
+    transition: 300ms;
+}.products-sections .products .product .btn-group button.change-btn:hover{
+    background-color: var(--warning);
+}@media only screen and (max-width : 768px){
+    .products-sections .products .product{
+        width: calc(calc(100% - 1rem ) / 2);
+    }.products-sections{
+        padding: 1rem;
+    }.products-sections .products .product h6{
+        font-size: .8rem;
+    }
+}@media only screen and (max-width : 567px){
+    .products-sections .products .product {
+        width: 100%;
+    }
+}

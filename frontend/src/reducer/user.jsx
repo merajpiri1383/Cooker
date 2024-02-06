@@ -4,7 +4,16 @@ const userSlice = createSlice({
     initialState : {
         phone : 0,
         token : "",
-        is_valid : false
+        is_valid : false,
+        is_active : null ,
+        is_master : null ,
+        is_staff : null ,
+        is_chef : null ,
+        username : "",
+        age : null ,
+        address : null ,
+        experience_age : null,
+        image : null ,
     },
     reducers : {
         setPhone : (state,action) => {
@@ -19,7 +28,19 @@ const userSlice = createSlice({
             state.phone = 0 ;
             state.token = null 
             state.is_valid = false
+        },setPermission : (state,action) => {
+            state.is_active = action.payload.is_active ;
+            state.is_chef = action.payload.is_chef ;
+            state.is_staff = action.payload.is_staff ;
+            state.is_master = action.payload.is_master ;
+        },setProfile : (state,action) => {
+            state.username = action.payload.username; 
+            state.age = action.payload.age ;
+            state.address = action.payload.address ;
+            state.experience_age = action.payload.experience_age;
+            state.image = action.payload.image;
+
         }
     }
-});export const {setPhone ,setToken , setIsValid , logout} = userSlice.actions ;
+});export const {setPhone ,setToken , setIsValid , logout ,setPermission , setProfile} = userSlice.actions ;
 export default userSlice.reducer ;

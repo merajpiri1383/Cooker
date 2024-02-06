@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "cart.apps.CartConfig",
     "userprofile.apps.UserprofileConfig",
     "master.apps.MasterConfig",
+    "settings.apps.SettingsConfig",
     # external apps
     "rest_framework",
     "django_jalali",
