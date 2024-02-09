@@ -1,21 +1,18 @@
 from rest_framework.generics import (ListCreateAPIView ,RetrieveAPIView,RetrieveDestroyAPIView
-        ,RetrieveUpdateAPIView,CreateAPIView,ListAPIView)
-from product.models import Image,Product
+        ,RetrieveUpdateAPIView)
+from product.models import Product
 from product.serializers import ProductSerializer
-from rest_framework.permissions import AllowAny
 from product.permissions import StaffStatePermission
+from product.pagination import ProductPagination
 # every one state permission
 class ProductAPIView:
     http_method_names = ["get"]
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [StaffStatePermission]
+    pagination_class = ProductPagination
 class ProductListAPIView(ProductAPIView,ListCreateAPIView):
     http_method_names = ["get","post"]
-    def get_queryset(self,*args,**kwargs):
-        print("all products is requested")
-        print(self.request.user)
-        return Product.objects.all()
 class ProductRetrieveView(ProductAPIView,RetrieveAPIView):
     pass 
 # master state permission 
