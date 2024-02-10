@@ -18,20 +18,24 @@ const Login = () => {
         if(number.length < 8 ){
             setError("شماره وارد شده نامعتبر است .")
         }else{
-            API.post("/accounts/login/",{mobile:number}).then(
-                (response) => {
-                    console.log(response)
-                    if (response.status === 200){
-                        dispatch(setPhone(number));
-                        return navigate("/verify/")
+            try{
+                API.post("/accounts/login/",{mobile:number}).then(
+                    (response) => {
+                        console.log(response)
+                        if (response.status === 200){
+                            dispatch(setPhone(number));
+                            return navigate("/verify/")
+                        }
                     }
-                }
-            ).then(
-                (error) => {
-                    console.log(error)
-                    setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
-                }
-            )
+                ).then(
+                    (error) => {
+                        console.log(error)
+                        setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
+                    }
+                )
+            }catch{
+                setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
+            }
         };
     };
     useEffect(()=>{

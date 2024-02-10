@@ -14,34 +14,41 @@ const Verify = () => {
     const submitHandeler = (e) => {
         e.preventDefault();
         setShowSpinner(true);
-        console.log(phone);
-        API.post(`/accounts/verify/${phone}/`,{otp: otp}).then(
-            (response) => {
-                console.log(response)
-                if (response.status === 200){
-                    const token = response.data.token ;
-                    const user = response.data.user ;
-                    console.log(user.is_staff)
-                    console.log(user.is_master)
-                    dispatch(setPermission({
-                        is_active : user.is_active ,
-                        is_chef : user.is_chef ,
-                        is_staff : user.is_staff ,
-                        is_master : user.is_master 
-                    }))
-                    dispatch(setToken(token));
-                    dispatch(setIsValid(true));
-                    return navigate("/")
-                }else if (response.status === 203){
-                    setError("کد نامعتبر می باشد .")
-                    setShowSpinner(false)
-                }
+        if(phone){
+            try{
+                API.post(`/accounts/verify/${phone}/`,{otp: otp}).then(
+                    (response) => {
+                        console.log(response)
+                        if (response.status === 200){
+                            const token = response.data.token ;
+                            const user = response.data.user ;
+                            console.log(user.is_staff)
+                            console.log(user.is_master)
+                            dispatch(setPermission({
+                                is_active : user.is_active ,
+                                is_chef : user.is_chef ,
+                                is_staff : user.is_staff ,
+                                is_master : user.is_master 
+                            }))
+                            dispatch(setToken(token));
+                            dispatch(setIsValid(true));
+                            return navigate("/")
+                        }else if (response.status === 203){
+                            setError("کد نامعتبر می باشد .")
+                            setShowSpinner(false)
+                        }
+                    }
+                ).then(
+                    (error) => {
+                        setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
+                    }
+                )
+            }catch{
+                setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
             }
-        ).then(
-            (error) => {
-                console.log(error)
-            }
-        )
+        }else{
+            setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
+        }
     }; useEffect(() => {
         setTimeout(() => {
             setShowSpinner(false);

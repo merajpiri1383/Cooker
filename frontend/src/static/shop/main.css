@@ -40,6 +40,7 @@
     color: var(--blue);
     border: 0;
     border-bottom: 2px solid var(--blue);
+    margin: 1px 2px;
     width: 100%;
     border-radius: 15px;
     transition: 300ms;
@@ -68,6 +69,9 @@
     transition: 300ms;
     transform: translateY(-10px);
 }
+.products .product .btn-group{
+    display: flex;
+}
 .products .product button:hover{
     background-color: var(--blue);
     color: white;
@@ -81,6 +85,13 @@
     transform: translateY(-2px);
     background-color: white;
     color: var(--blue);
+}
+.products .product .btn-group .change-btn{
+    color: orangered;
+    border-bottom: orangered 1px solid;
+}.products .product .btn-group .change-btn:hover{
+    background-color: orangered;
+    color: white;
 }
 /*       992px         */
 @media only screen and (max-width:992px){
