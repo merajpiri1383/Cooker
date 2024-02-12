@@ -1,18 +1,21 @@
 .auth-form{
     width: 75%;
     margin: 2rem auto;
-    border: 1px solid var(--gray);
+    border: 0;
     box-shadow: var(--box-shadow);
     padding: 1rem ;
     text-align: center;
-    border-radius: 25px;
+    border-radius: 15px;
 }.auth-form.auth-form .auth-form-group{
+    text-align: right;
     margin: .5rem 0;
+}.auth-form.auth-form .auth-form-group .auth-form-label{
+    margin: 3px 8px;
 }.auth-form.auth-form .auth-form-group .auth-form-input {
     width: 100%;
     padding: .4rem;
     font-size: 1rem;
-    border: 2px solid var(--blue);
+    border: 1px solid var(--gray);
     transition: 300ms;
     border-radius: 25px;
     outline: 0;
@@ -20,15 +23,15 @@
     color: var(--blue);
 }.auth-form.auth-form .auth-form-group .auth-form-input:focus{
     transition: 300ms;
-    border: 2px solid var(--blue);
+    border: 1px solid var(--blue);
     color: var(--blue);
     font-size: 1.2rem;
 }.auth-form .auth-form-group .auth-form-button{
     width: 100%;
     background-color: var(--blue);
-    border-radius: 25px;
-    padding: .4rem;
-    font-size: 1rem;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: .8rem;
     color: white;
     border: 0;
     transition: 300ms;
@@ -37,18 +40,19 @@
     background-color: white;
     color: var(--blue);
     transition: 300ms;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: 1px solid var(--blue);
 }.auth-form .auth-form-group .auth-form-title {
     font-size: 1.5rem;
     font-weight: 700;
+    text-align: center;
     color: var(--blue);
     text-shadow:1px 1px 10px #00f3ffc9;
 }.auth-form .auth-form-group .auth-form-delete{
-    background-color: red;
+    background-color: crimson;
 }.auth-form .auth-form-group .auth-form-delete:hover{
-    color: red;
-    border: 1px solid red;
+    color: crimson;
+    border: 1px solid crimson;
 }.auth-form.auth-form .auth-form-group .auth-form-input::file-selector-button{
     background-color: white;
     border: 0;

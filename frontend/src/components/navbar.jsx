@@ -26,6 +26,11 @@ const Navbar = () => {
                 }
                 {
                     user.token && user.is_valid && <li>
+                        <Link className="navbar-link" to={"/profile/"}>حساب کاربری</Link>
+                    </li>
+                }
+                {
+                    user.token && user.is_valid && <li>
                         <Link className="navbar-link" onClick={()=> {
                             dispatch(logout());
                         }}>خروج</Link>

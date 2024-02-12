@@ -24,17 +24,13 @@ const Products = () => {
                 }
             }
         ).then(
-            (error) => {
-                console.log(error)
-            }
+            (error) => {}
         )
     }
     const getData = async ()=>{
         await API.get(`/products/?page=${page}`).then(
             (response) => {
                 setProducts(response.data.results)
-                console.log("Kk")
-                console.log(response.data.previous)
                 if(response.data.next){
                     setNextPage(true);
                 }else{
@@ -50,9 +46,7 @@ const Products = () => {
                 },400)
             }
         ).then(
-            (error) => {
-                console.log(error)
-            }
+            (error) => {}
         )
     };
     useEffect(()=>{

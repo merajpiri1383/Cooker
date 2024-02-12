@@ -14,9 +14,9 @@ class Profile(models.Model):
     image = models.ImageField(upload_to="profiles",blank=True,null=True)
     age = models.PositiveIntegerField(validators=[MinValueValidator(10),MaxValueValidator(80)],
                                     blank=True,null=True)
-    experience_age = models.PositiveIntegerField(validators=[MaxValueValidator(50),MinValueValidator(0)],
+    experience_age = models.FloatField(validators=[MaxValueValidator(50),MinValueValidator(0)],
                                     blank=True,null=True)
     chef_type = models.CharField(max_length=15,choices=cheff_types,default="none")
     address = models.TextField(null=True,blank=True)
     def __str__(self):
-        return f"{self.user.mobile} profile"
+        return f"{self.user.mobile} profile" 

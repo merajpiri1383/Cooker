@@ -35,6 +35,7 @@ const userSlice = createSlice({
             state.is_staff = action.payload.is_staff ;
             state.is_master = action.payload.is_master ;
         },setProfile : (state,action) => {
+            console.log("user reducer change profile")
             state.username = action.payload.username; 
             state.age = action.payload.age ;
             state.address = action.payload.address ;
@@ -43,5 +44,5 @@ const userSlice = createSlice({
 
         }
     }
-});export const {setPhone ,setToken , setIsValid , logout ,setPermission , setProfile} = userSlice.actions ;
+});export const {setPhone ,setToken , setIsValid , logout ,setPermission , setProfile } = userSlice.actions ;
 export default userSlice.reducer ;

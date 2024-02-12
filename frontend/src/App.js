@@ -7,10 +7,10 @@ import Brand from "./components/settings/brand";
 import IamgeProduct from "./components/settings/ImageProduct";
 import Main from "./pages/shop/main";
 import API from "./auth/auth";
+import Profile from "./pages/profile/profile";
 import { useSelector } from "react-redux";
 const App = () => {
   const settings = useSelector((state) => state.settings);
-  console.log(settings.background_image)
   return (
     <BrowserRouter>
       {
@@ -25,6 +25,7 @@ const App = () => {
           <Route path="change-default-image" element={<IamgeProduct />} />
           <Route path="change-brand" element={<Brand />} />
         </Route> 
+        <Route path="/profile/" element={<Profile />} />
         <Route path="/" element={<Main />} />
       </Routes>
     </BrowserRouter>

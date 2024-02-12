@@ -5,7 +5,7 @@ class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()
     class Meta : 
         model = get_user_model()
-        fields = ["mobile","is_active","is_chef","is_staff","is_master","is_superuser","profile"]
+        fields = "__all__"
     def update(self,instance,validated_data):
         profile = validated_data.get("profile")
         if validated_data.get("is_active") :

@@ -1,6 +1,6 @@
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
-import { setToken , setIsValid ,setPermission} from "../../reducer/user";
+import { setToken , setIsValid ,setPermission } from "../../reducer/user";
 import {useSelector , useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import API from "../../auth/auth";
@@ -11,19 +11,17 @@ const Verify = () => {
     const dispatch = useDispatch();
     const phone = useSelector((state) => state.user.phone);
     const navigate = useNavigate();
-    const submitHandeler = (e) => {
+    const submitHandeler = async (e) => {
         e.preventDefault();
         setShowSpinner(true);
         if(phone){
             try{
-                API.post(`/accounts/verify/${phone}/`,{otp: otp}).then(
+                await API.post(`/accounts/verify/${phone}/`,{otp: otp}).then(
                     (response) => {
                         console.log(response)
                         if (response.status === 200){
                             const token = response.data.token ;
                             const user = response.data.user ;
-                            console.log(user.is_staff)
-                            console.log(user.is_master)
                             dispatch(setPermission({
                                 is_active : user.is_active ,
                                 is_chef : user.is_chef ,
@@ -40,13 +38,16 @@ const Verify = () => {
                     }
                 ).then(
                     (error) => {
+                        setShowSpinner(false)
                         setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
                     }
                 )
             }catch{
+                setShowSpinner(false)
                 setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
             }
         }else{
+            setShowSpinner(false)
             setError("مشکلی رخ داده است لطفا بعدا امتحان کنید.")
         }
     }; useEffect(() => {
